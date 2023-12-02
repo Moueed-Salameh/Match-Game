@@ -9,7 +9,7 @@ body {
     background-color: var(--dark);
     font-family: 'Press Start 2P', cursive;
     text-align: center;
-    font-size: 22pt;
+    font-size: 18pt;
     color: var(--light-teal);
     text-shadow: var(--light-dark) 2px 2px;
 }
@@ -29,14 +29,15 @@ body {
 
 .button {
     background-color: var(--dark-teal);
-    width: 350px;
-    height: 250px;
+    width: 280px;
+    height: 100px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border: var(--light-dark) 5px solid;
     border-radius: 15px;
+    padding: 10px;
 }
 
 .selected {

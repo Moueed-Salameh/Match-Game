@@ -9,7 +9,11 @@ const data = {
     "Australia":"Canberra",
     "Ireland": "Dublin",
     "Italy": "Rome",
-    "Syria": "Damascus",
+    "United Kingdom": "London",
+    "Finland": "Helsinki",
+    "Switzerland": "Bern",
+    "Jamaica": "Kingston",
+    "Indonesia": "Jakarta",
 };
 const keys = Object.keys(data);
 const values = Object.values(data);

@@ -19,8 +19,8 @@ function clickButton (event) {
 
 function checkAnswer() {
     // ADD SCORE AND WIN STREAK?
-    selection1 = $(".selected")[0].classList[1];
-    selection2 = $(".selected")[1].classList[1];
+    selection1 = $(".selected")[0].classList[1].replace(/_/g," ");
+    selection2 = $(".selected")[1].classList[1].replace(/_/g," ");
 
     if (dataDict[selection1] === selection2 || dataDict[selection2] === selection1) {
         return true;
