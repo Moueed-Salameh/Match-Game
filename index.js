@@ -1,16 +1,33 @@
 import express from "express";
+import pg from "pg";
 
 const app = express();
 const port = 3000;
 
-const data = {
-    "Germany": "Berlin",
-    "France": "Paris",
-    "Australia":"Canberra",
-    "Ireland": "Dublin",
-    "Italy": "Rome",
-    "Syria": "Damascus",
-};
+const db = new pg.Client({
+    host: "localhost",
+    port: 5432,
+    database: "world",
+    user: "postgres",
+    password: process.env.POSTGRES_PWD,
+});
+
+await db.connect();
+let dbData = [];
+try {
+    const res = await db.query("SELECT country, capital FROM capitals ORDER BY random() LIMIT 10");
+    dbData = res.rows;
+} catch (err) {
+    console.error(err);
+} finally {
+    await db.end()
+}
+
+let data = {};
+dbData.forEach((item) => {
+    data[item.country] = item.capital;
+});
+
 const keys = Object.keys(data);
 const values = Object.values(data);
 
@@ -32,4 +49,5 @@ app.get("/", async (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
     console.log("Go to http://localhost:3000/");
+    console.log(data);
 });

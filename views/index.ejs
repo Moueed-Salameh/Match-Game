@@ -11,7 +11,7 @@
     <div class="centered-container">
         <div class="container">
             <% dataShuffled.forEach((item) => { %>
-                <div class="button <%- item %>"><%= item %></div>    
+                <div class="button <%- item.replace(/ /g,"_") %>"><%= item %></div>    
             <% }) %>
         </div>
     </div>
